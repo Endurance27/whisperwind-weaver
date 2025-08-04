@@ -61,6 +61,26 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				analytics: {
+					blue: 'hsl(var(--analytics-blue))',
+					'blue-dark': 'hsl(var(--analytics-blue-dark))',
+					purple: 'hsl(var(--analytics-purple))',
+					green: 'hsl(var(--analytics-green))',
+					pink: 'hsl(var(--analytics-pink))',
+					orange: 'hsl(var(--analytics-orange))',
+					teal: 'hsl(var(--analytics-teal))'
+				},
+				category: {
+					pwds: 'hsl(var(--pwds-color))',
+					vaw: 'hsl(var(--vaw-color))',
+					mental: 'hsl(var(--mental-health-color))',
+					lgbtq: 'hsl(var(--lgbtq-color))'
+				},
+				sentiment: {
+					positive: 'hsl(var(--positive-sentiment))',
+					negative: 'hsl(var(--negative-sentiment))',
+					neutral: 'hsl(var(--neutral-sentiment))'
 				}
 			},
 			borderRadius: {
