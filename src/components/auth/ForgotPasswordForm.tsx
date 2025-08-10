@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
+import { useAuth } from "@/hooks/useAuth";
 
 interface ForgotPasswordFormData {
   email: string;
@@ -18,20 +19,20 @@ export function ForgotPasswordForm({ onSwitchToLogin }: ForgotPasswordFormProps)
   const [isLoading, setIsLoading] = useState(false);
   const { register, handleSubmit, formState: { errors } } = useForm<ForgotPasswordFormData>();
   const { toast } = useToast();
+  const { resetPassword } = useAuth();
 
   const onSubmit = async (data: ForgotPasswordFormData) => {
     setIsLoading(true);
     try {
-      // Simulate forgot password API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      await resetPassword(data.email);
       toast({
         title: "Reset link sent!",
         description: "Please check your email for password reset instructions.",
       });
-    } catch (error) {
+    } catch (error: any) {
       toast({
         title: "Error",
-        description: "Failed to send reset link. Please try again.",
+        description: error.message || "Failed to send reset link. Please try again.",
         variant: "destructive",
       });
     } finally {
